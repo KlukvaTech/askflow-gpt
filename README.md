@@ -5,7 +5,7 @@
 LLM_NAME=llama.cpp
 VITE_API_STREAMING=true
 EMBEDDINGS_NAME=huggingface_sentence-transformers/all-mpnet-base-v2
-4)Запус:
+4)Запуск:
 	1. Запуcтить все в докер - файл run-with-docker-compose.sh
 	2. Запуcтить локальный бэкэнд - файл setup-local-back.sh
 	3. Запуcтить локальные фронт и бэк - файл setup-local-back.sh + setup-local-front.sh
