@@ -6,6 +6,7 @@ from application.core.settings import settings
 from application.api.user.routes import user
 from application.api.answer.routes import answer
 from application.api.internal.routes import internal
+from flask_cors import CORS
 
 if platform.system() == "Windows":
     import pathlib
@@ -17,12 +18,14 @@ app = Flask(__name__)
 app.register_blueprint(user)
 app.register_blueprint(answer)
 app.register_blueprint(internal)
+
 app.config.update(
     UPLOAD_FOLDER="inputs",
     CELERY_BROKER_URL=settings.CELERY_BROKER_URL,
     CELERY_RESULT_BACKEND=settings.CELERY_RESULT_BACKEND,
     MONGO_URI=settings.MONGO_URI
 )
+CORS(app, resources={r'*': {'origins':'*'}})
 celery.config_from_object("application.celeryconfig")
 
 @app.route("/")
