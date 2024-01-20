@@ -6,7 +6,9 @@ class FaissStore(BaseVectorStore):
 
     def __init__(self, path, embeddings_key, docs_init=None):
         super().__init__()
-        self.path = "./application/indexes/local/Test_text.pdf"
+        print("PAAAAAAAAAAAAAAAAAAAAAAAATH")
+        print(path)
+        self.path = "/app/" + path
         embeddings = self._get_embeddings(settings.EMBEDDINGS_NAME, embeddings_key)
         if docs_init:
             self.docsearch = FAISS.from_documents(
