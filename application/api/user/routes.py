@@ -203,12 +203,13 @@ def combined_json():
                 "location": "local",
             }
         )
-    if settings.VECTOR_STORE == "faiss":
-        data_remote = requests.get("https://d3dg1063dc54p9.cloudfront.net/combined.json").json()
-        for index in data_remote:
-            index["location"] = "remote"
-            data.append(index)
-
+    # if settings.VECTOR_STORE == "faiss":
+    #     data_remote = requests.get("https://d3dg1063dc54p9.cloudfront.net/combined.json").json()
+    #     for index in data_remote:
+    #         index["location"] = "remote"
+    #         data.append(index)
+    print('KEEEEEEEEEEEEEEEK')
+    print(vectors_collection)
     return jsonify(data)
 
 

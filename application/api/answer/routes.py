@@ -77,6 +77,7 @@ def run_async_chain(chain, question, chat_history):
 
 def get_vectorstore(data):
     if "active_docs" in data:
+        print(data["active_docs"])
         if data["active_docs"].split("/")[0] == "default":
                 vectorstore = ""
         elif data["active_docs"].split("/")[0] == "local":
@@ -223,6 +224,8 @@ def api_answer():
     data = request.get_json()
     question = data["question"]
     history = data["history"]
+    print("LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOLLLLLLLLLLLLL")
+    print(history)
     if "conversation_id" not in data:
         conversation_id = None
     else:
